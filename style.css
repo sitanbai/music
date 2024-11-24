@@ -1,0 +1,200 @@
+/* 通用样式 */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(120deg, #e0f7fa, #80deea); /* 柔和渐变背景 */
+    color: #333; /* 深灰字体 */
+}
+
+header {
+    background: #00796b; /* 深绿色 */
+    color: #fff;
+    padding: 15px 20px;
+    text-align: center;
+    font-size: 1.8em;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+    background: #ffffff; /* 白色背景 */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 增加阴影层次 */
+}
+
+/* 音频列表 */
+#audio-list {
+    margin-bottom: 20px;
+}
+
+#file-list {
+    list-style: none;
+    padding: 0;
+}
+
+#file-list li {
+    padding: 15px;
+    background: #f0f4f8; /* 浅灰蓝色背景 */
+    margin-bottom: 8px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 元素阴影 */
+    border-left: 4px solid #00796b; /* 标识感 */
+}
+
+#file-list li:hover {
+    background: #e3f2fd; /* 浅蓝色悬停效果 */
+}
+
+#pagination {
+    text-align: center;
+    margin-top: 15px;
+}
+
+
+/* 分页按钮样式 */
+#pagination button {
+    margin: 0 5px;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-size: 0.9em;
+    color: #ffffff;
+    background: linear-gradient(135deg, #0288d1, #01579b); /* 蓝色渐变 */
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+#pagination button:hover {
+    background: linear-gradient(135deg, #01579b, #0288d1); /* 反向渐变 */
+    box-shadow: 0 5px 7px rgba(0, 0, 0, 0.2);
+    transform: translateY(-1px);
+}
+
+#pagination button:disabled {
+    background: #bdbdbd;
+    cursor: not-allowed;
+}
+
+/* 播放器控制样式 */
+.controls {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+button, select {
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    color: #ffffff;
+    background: linear-gradient(135deg, #00796b, #004d40); /* 渐变背景 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 按钮阴影 */
+    transition: all 0.3s ease-in-out;
+}
+
+/* 悬停效果 */
+button:hover {
+    background: linear-gradient(135deg, #004d40, #00796b); /* 反向渐变 */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* 增加阴影 */
+    transform: translateY(-2px); /* 上移效果 */
+}
+
+/* 按下效果 */
+button:active {
+    transform: translateY(2px); /* 按下微移 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 阴影减弱 */
+}
+
+/* 禁用状态 */
+button:disabled {
+    background: #bdbdbd; /* 灰色背景 */
+    color: #757575; /* 浅灰文字 */
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+
+select {
+    background: #ffffff;
+    color: #00796b;
+    border: 1px solid #80deea;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: border 0.3s;
+}
+
+select:hover {
+    border: 1px solid #0288d1; /* 更深的边框色 */
+}
+
+/* 音频播放器样式 */
+#audio-player audio {
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #80deea; /* 蓝色边框 */
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    main {
+        padding: 15px;
+    }
+
+    #file-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        border-left: none;
+    }
+
+    #file-list li button {
+        margin-top: 5px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .controls {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    button, select {
+        width: 100%;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        font-size: 1.4em;
+    }
+
+    button, select {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+}
+
+

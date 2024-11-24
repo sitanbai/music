@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>研经工具</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>研经工具</h1>
+    </header>
+    <main>
+        <section id="audio-list">
+            <h2>音频列表</h2>
+            <ul id="file-list"></ul>
+            <div id="pagination"></div>
+            
+        </section>
+        <section id="audio-player">
+            <h2>播放器</h2>
+            <audio id="player" controls></audio>
+            <div class="controls">
+                <button id="play-pause">播放 / 暂停</button>
+                <button id="fast-forward">快进 10 秒</button>
+                <button id="download">下载</button>
+                <select id="speed">
+                    <option value="0.5">0.5x</option>
+                    <option value="1" selected>1x</option>
+                    <option value="1.5">1.5x</option>
+                    <option value="2">2x</option>
+                </select>
+            </div>            
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
