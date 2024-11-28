@@ -6,14 +6,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const fastForwardButton = document.getElementById('fast-forward');
     const downloadButton = document.getElementById('download');
     const speedSelect = document.getElementById('speed');
+    const currentPlaying = document.getElementById('current-playing');
 
     const audioFiles = [
         // 示例文件，可以替换为动态获取
         { name: '1.愚拙的童女', url: 'audio/1愚拙的童女.mp3' },
         { name: '2.聪明的童女', url: 'audio/2聪明的童女.mp3' },
-        { name: '3.第一位天使的信息', url: 'audio/3.第一位天使的信息.mp3' },
-        { name: '4.第二位天使的信息', url: 'audio/4.第二位天使的信息.mp3' },
-        { name: '5.第三位天使的信息', url: 'audio/5.第三位天使的信息.mp3' },
+        { name: '3.第一位天使的信息', url: 'audio/3.第一位天使信息.mp3' },
+        { name: '4.第二位天使的信息', url: 'audio/4.第二位天使信息.mp3' },
+        { name: '5.第三位天使的信息', url: 'audio/5.第三位天使信息.mp3' },
         { name: '6.因信称义(1)上帝宝贵的应许', url: 'audio/6.因信称义（1）上帝宝贵的应许.mp3' },
         { name: '7.因信称义(2)基督的功劳是我们唯一的希望', url: 'audio/7.因信称义（2 ）基督的功劳是我们唯一的希望.mp3' },
         { name: '8.因信称义(3)基督是赐生命的主', url: 'audio/8.因信称义（3）基督是赐生命的主.mp3' },
@@ -23,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: '12.因信称义(5)认识自我', url: 'audio/12.因信称义（5）认识自我.mp3' },
         { name: '13.得救的经验(1)', url: 'audio/13.得救的经验(1).mp3' },
         { name: '14.得救的经验(2)', url: 'audio/14.得救的经验(2).mp3' },
-        { name: '15.基督论重生(1)', url: 'audio/15.基督论重生1(1).mp3' },
+        { name: '15.基督论重生(1)', url: 'audio/15.基督论重生(1).mp3' },
         { name: '16.基督论重生(2)', url: 'audio/16.基督论重生(2).mp3' },
         { name: '17.真实的悔改', url: 'audio/17.真实的悔改.mp3' },
         { name: '18.你们应当悔改', url: 'audio/18.你们应当悔改.mp3' },
@@ -69,6 +70,32 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: '58.成为补破口的', url: 'audio/58.成为补破口的.mp3' },
         { name: '59.大淫妇和兽', url: 'audio/59.大淫妇和兽.mp3' },
         { name: '60.福音的中心', url: 'audio/60.福音的中心.mp3' },
+        { name: '61.好牧人', url: 'audio/61.好牧人.mp3' },
+        { name: '62.基督徒的言语', url: 'audio/62.基督徒的言语.mp3' },
+        { name: '63.信子的人得永生', url: 'audio/63.信子的人得永生.mp3' },
+        { name: '64.三十八年的瘫子', url: 'audio/64.三十八年的瘫子.mp3' },
+        { name: '65.不要再犯罪', url: 'audio/65.不要再犯罪.mp3' },
+        { name: '66.该隐和亚伯（1）', url: 'audio/66.该隐和亚伯（1）.mp3' },
+        { name: '67.该隐和亚伯（2', url: 'audio/67.该隐和亚伯（2）.mp3' },
+        { name: '68.天国的八步阶梯（上）', url: 'audio/68.天国的八步阶梯（上）.mp3' },
+        { name: '69.天国的八步阶梯（下）', url: 'audio/69.天国的八步阶梯（下）.mp3' },
+        { name: '70.枯骨复苏（上）结37章', url: 'audio/70.枯骨复苏（上）结37章.mp3' },
+        { name: '71.枯骨复苏（下）结37章', url: 'audio/71.枯骨复苏（下）结37章.mp3' },
+        { name: '72.唯有靠基督得救', url: 'audio/72.唯有靠基督得救.mp3' },
+        { name: '73.成圣的人生', url: 'audio/73.成圣的人生.mp3' },
+        { name: '74.喜筵的比喻（上）太22章', url: 'audio/74.喜筵的比喻（上）太22章.mp3' },
+        { name: '75.喜筵的比喻（中）', url: 'audio/75.喜筵的比喻（中）.mp3' },
+        { name: '76.喜筵的比喻（下）', url: 'audio/76.喜筵的比喻（下）.mp3' },
+        { name: '77.如何悔改（1）', url: 'audio/77.如何悔改（1）.mp3' },
+        { name: '78.如何悔改（2）', url: 'audio/78.如何悔改（2）.mp3' },
+        { name: '79.罪担卸下）', url: 'audio/79.罪担卸下.mp3' },
+        { name: '80.上帝的美善 诗34(上)', url: 'audio/80.上帝的美善 诗34（上）.mp3' },
+        { name: '81.上帝的美善 诗34（下）', url: 'audio/81.上帝的美善 诗34（下）.mp3' },
+        { name: '82.耶稣基督的神性（上）', url: 'audio/82.耶稣基督的神性（上）.mp3' },
+        { name: '83.耶稣基督的神性（下）', url: 'audio/83.耶稣基督的神性（下）.mp3' },
+        { name: '84.因罪得赦，使我们称义（1）', url: 'audio/84.因罪得赦，使我们称义（1）.mp3' },
+        { name: '85.因罪得赦，使我们称义（2）', url: 'audio/85.因罪得赦，使我们称义（2）.mp3' },
+        { name: '86.因罪得赦，使我们称义（3）', url: 'audio/86.因罪得赦，使我们称义（3）.mp3' },
     ];
 
 
@@ -112,8 +139,15 @@ document.addEventListener('DOMContentLoaded', () => {
     fileList.addEventListener('click', e => {
         if (e.target.classList.contains('play-btn')) {
             const url = e.target.getAttribute('data-url');
+            const name = e.target.getAttribute('data-name');
             player.src = url;
+            currentPlaying.textContent = name;
             player.play();
+
+            //高亮当前播放项
+            const allItems = document.querySelectorAll('li');
+            allItems.forEach(item => item.classList.remove('active'));
+            e.target.closest('li').classList.add('active')
         }
     });
 
